@@ -15,6 +15,7 @@ public class RecogibleInicial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         transform.Rotate (movimiento * velocidad * Time.deltaTime, Space.World);
     }
 }
