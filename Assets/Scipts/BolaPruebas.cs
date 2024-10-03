@@ -7,8 +7,8 @@ public class BolaPruebas : MonoBehaviour
 {
     Rigidbody rb;
     [SerializeField] float velocidad;
-    [SerializeField] Vector3 moverseW1, moverseS2, moverseA3, moverseD4;
-    float x, y, z;
+    //[SerializeField] Vector3 moverseW1, moverseS2, moverseA3, moverseD4;
+    //float x, y, z;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,27 +45,27 @@ public class BolaPruebas : MonoBehaviour
 
         //------xxxxxxxxxxxxxxxxxxxxxxxxx------------
 
-        //rb.AddForce(new Vector3(Input.GetAxis("Vertical"), 0, -Input.GetAxis("Horizontal")).normalized * velocidad);
+        rb.AddForce(new Vector3(Input.GetAxisRaw("Vertical"), 0, -Input.GetAxisRaw("Horizontal")).normalized * velocidad);
 
         //------xxxxxxxxxxxxxxxxxxxxxxxxx------------
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            x++;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            z++;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            x--;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            z--;
-        }
-        rb.velocity = new Vector3(x,y,z) * velocidad;
+        //if (Input.GetKey(KeyCode.W))
+        //{
+        //    x++;
+        //}
+        //if (Input.GetKey(KeyCode.A))
+        //{
+        //    z++;
+        //}
+        //if (Input.GetKey(KeyCode.S))
+        //{
+        //    x--;
+        //}
+        //if (Input.GetKey(KeyCode.D))
+        //{
+        //    z--;
+        //}
+        //rb.velocity = new Vector3(x,y,z) * velocidad;
 
         //------xxxxxxxxxxxxxxxxxxxxxxxx------------
 

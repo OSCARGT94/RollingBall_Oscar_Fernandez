@@ -7,7 +7,7 @@ public class PlatformaMovil : MonoBehaviour
     [SerializeField] Vector3 movimiento;
     [SerializeField] float velocidad;
     [SerializeField] float timer, restTimer;
-    bool sentidoGiro = true;
+    //bool sentidoGiro = true;
 
     float tiempo;
     // Start is called before the first frame update
