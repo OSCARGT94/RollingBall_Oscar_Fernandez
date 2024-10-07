@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class BolaPruebas : MonoBehaviour
 {
     Rigidbody rb;
-    [SerializeField] float velocidad;
+    [SerializeField] float velocidad, velocidadSalto;
     //[SerializeField] Vector3 moverseW1, moverseS2, moverseA3, moverseD4;
     //float x, y, z;
     // Start is called before the first frame update
@@ -44,8 +44,15 @@ public class BolaPruebas : MonoBehaviour
         //}
 
         //------xxxxxxxxxxxxxxxxxxxxxxxxx------------
+        float  x = Input.GetAxisRaw("Vertical"), y , z = -Input.GetAxisRaw("Horizontal");
 
-        rb.AddForce(new Vector3(Input.GetAxisRaw("Vertical"), 0, -Input.GetAxisRaw("Horizontal")).normalized * velocidad);
+        rb.AddForce(new Vector3(x, 0,z ).normalized * velocidad, ForceMode.Force );
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            rb.AddForce(new Vector3(0, 1, 0) * velocidadSalto, ForceMode.Impulse);
+        }
+
 
         //------xxxxxxxxxxxxxxxxxxxxxxxxx------------
 
@@ -70,4 +77,12 @@ public class BolaPruebas : MonoBehaviour
         //------xxxxxxxxxxxxxxxxxxxxxxxx------------
 
     }
+    //private void OnCollisionEnter(Collision collision )
+    //{
+    //    if (collision.gameObject.tag.Equals("Recogible"))
+    //    {
+    //        Destroy(collision.gameObject);
+    //    }
+    //}
+   
 }
