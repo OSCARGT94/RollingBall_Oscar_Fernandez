@@ -7,19 +7,25 @@ public class BolaPruebas : MonoBehaviour
 {
     Rigidbody rb;
     [SerializeField] float velocidad, velocidadSalto;
+    int puntuacion, vida, vidaInicial = 10;
+    Vector3 posInicial;
     //[SerializeField] Vector3 moverseW1, moverseS2, moverseA3, moverseD4;
     //float x, y, z;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        posInicial = transform.position;
+        puntuacion = 0;
+        vida = vidaInicial;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
         movimiento();
+
     }
     void movimiento()
     {
@@ -44,9 +50,7 @@ public class BolaPruebas : MonoBehaviour
         //}
 
         //------xxxxxxxxxxxxxxxxxxxxxxxxx------------
-        float  x = Input.GetAxisRaw("Vertical"), y , z = -Input.GetAxisRaw("Horizontal");
 
-        rb.AddForce(new Vector3(x, 0,z ).normalized * velocidad, ForceMode.Force );
 
         if (Input.GetKey(KeyCode.Space))
         {
@@ -77,6 +81,12 @@ public class BolaPruebas : MonoBehaviour
         //------xxxxxxxxxxxxxxxxxxxxxxxx------------
 
     }
+    private void FixedUpdate()
+    {
+    float x = Input.GetAxisRaw("Vertical"), y=0, z = -Input.GetAxisRaw("Horizontal");
+        rb.AddForce(new Vector3(x, y, z).normalized * velocidad, ForceMode.Force);
+
+    }
     //private void OnCollisionEnter(Collision collision )
     //{
     //    if (collision.gameObject.tag.Equals("Recogible"))
@@ -84,5 +94,31 @@ public class BolaPruebas : MonoBehaviour
     //        Destroy(collision.gameObject);
     //    }
     //}
-   
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Recogible"))
+        {
+            Destroy(other.gameObject);
+            puntuacion += 10;
+            Debug.Log("Tu puntuacion ahora es " + puntuacion);
+            vida += 3;
+            Debug.Log("Tu vida se suma en 3, tu vida es " + vida);
+        }
+        if (other.CompareTag("Muerte"))
+        {
+            
+            transform.position = posInicial;
+        } 
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag.Equals("objetodaño"))
+        {
+            
+            vida -= 1;
+            Debug.Log("Golpear el vidon te hace daño, tu vida es " + vida);
+        }
+        
+    }
+
 }

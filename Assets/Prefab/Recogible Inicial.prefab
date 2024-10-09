@@ -54,6 +54,7 @@ MonoBehaviour:
   velocidad2: 0.5
   timer: 1
   restTimer: 1
+  jugador: {fileID: 0}
 --- !u!33 &2705056761079849957
 MeshFilter:
   m_ObjectHideFlags: 0
