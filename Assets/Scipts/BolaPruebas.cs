@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,6 +10,7 @@ public class BolaPruebas : MonoBehaviour
     [SerializeField] float velocidad, velocidadSalto;
     int puntuacion, vida, vidaInicial = 10;
     Vector3 posInicial;
+    [SerializeField] TMP_Text score;
     //[SerializeField] Vector3 moverseW1, moverseS2, moverseA3, moverseD4;
     //float x, y, z;
     // Start is called before the first frame update
@@ -18,6 +20,7 @@ public class BolaPruebas : MonoBehaviour
         posInicial = transform.position;
         puntuacion = 0;
         vida = vidaInicial;
+        score.SetText("Score: " + puntuacion);
     }
 
     // Update is called once per frame
@@ -25,7 +28,6 @@ public class BolaPruebas : MonoBehaviour
     {
 
         movimiento();
-
     }
     void movimiento()
     {
@@ -83,7 +85,7 @@ public class BolaPruebas : MonoBehaviour
     }
     private void FixedUpdate()
     {
-    float x = Input.GetAxisRaw("Vertical"), y=0, z = -Input.GetAxisRaw("Horizontal");
+        float x = Input.GetAxisRaw("Vertical"), y = 0, z = -Input.GetAxisRaw("Horizontal");
         rb.AddForce(new Vector3(x, y, z).normalized * velocidad, ForceMode.Force);
 
     }
@@ -98,6 +100,7 @@ public class BolaPruebas : MonoBehaviour
     {
         if (other.CompareTag("Recogible"))
         {
+            actualizarHUD();
             Destroy(other.gameObject);
             puntuacion += 10;
             Debug.Log("Tu puntuacion ahora es " + puntuacion);
@@ -106,19 +109,24 @@ public class BolaPruebas : MonoBehaviour
         }
         if (other.CompareTag("Muerte"))
         {
-            
+
             transform.position = posInicial;
-        } 
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag.Equals("objetodaño"))
         {
-            
+
             vida -= 1;
             Debug.Log("Golpear el vidon te hace daño, tu vida es " + vida);
         }
-        
+
+    }
+    void actualizarHUD()
+    {
+        //score.text = "Score: " + puntuacion;
+        score.SetText("Score: " + puntuacion);
     }
 
 }
