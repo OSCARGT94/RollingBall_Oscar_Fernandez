@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using TreeEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -28,6 +29,15 @@ public class BolaPruebas : MonoBehaviour
     {
 
         movimiento();
+        if (Input.GetKey(KeyCode.Space))
+        {
+            if (detectarSuelo())
+            {
+                rb.AddForce(new Vector3(0, 1, 0) * velocidadSalto, ForceMode.Impulse);
+            }
+
+        }
+
     }
     void movimiento()
     {
@@ -54,10 +64,7 @@ public class BolaPruebas : MonoBehaviour
         //------xxxxxxxxxxxxxxxxxxxxxxxxx------------
 
 
-        if (Input.GetKey(KeyCode.Space))
-        {
-            rb.AddForce(new Vector3(0, 1, 0) * velocidadSalto, ForceMode.Impulse);
-        }
+
 
 
         //------xxxxxxxxxxxxxxxxxxxxxxxxx------------
@@ -127,6 +134,14 @@ public class BolaPruebas : MonoBehaviour
     {
         //score.text = "Score: " + puntuacion;
         score.SetText("Score: " + puntuacion);
+    }
+    private bool detectarSuelo()
+    {
+        bool suelo = Physics.Raycast(transform.position, new Vector3(0, -1, 0), 0.6f);
+        Debug.DrawRay(transform.position, new Vector3(0,-1,0),Color.red, 2f);
+        return suelo;
+
+        
     }
 
 }
