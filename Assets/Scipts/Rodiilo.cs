@@ -11,7 +11,7 @@ public class Rodiilo : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.AddTorque(sentidoGiro * velocidad, ForceMode.Acceleration );
+        rb.AddTorque(sentidoGiro * velocidad, ForceMode.VelocityChange );
     }
 
     // Update is called once per frame
