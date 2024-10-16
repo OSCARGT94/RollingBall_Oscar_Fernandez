@@ -7,7 +7,8 @@ public class RecogibleInicial : MonoBehaviour
     [SerializeField] Vector3 movimiento, movimiento2;
     [SerializeField] float velocidad, velocidad2;
     [SerializeField] float timer, restTimer;
-    [SerializeField] GameObject jugador;
+    [SerializeField] AudioClip sonidocoin;
+    [SerializeField] AudioManager audioManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +44,13 @@ public class RecogibleInicial : MonoBehaviour
         {
             transform.Translate(movimiento2.normalized * -velocidad2 * Time.deltaTime, Space.World);
 
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            audioManager.ReproducirSonido(sonidocoin);
         }
     }
     //private void //OnTriggerEnter(Collider other)
