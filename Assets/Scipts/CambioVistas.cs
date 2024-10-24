@@ -21,9 +21,18 @@ public class CambioVistas : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            camara1.SetActive(false);
+            if (camara1 == true)
+            {
+                camara1.SetActive(false);
 
-            camaCenital.SetActive(true);
+                camaCenital.SetActive(true);
+            } 
+            else if (camara1 == false)
+            {
+                camara1.SetActive(true);
+
+                camaCenital.SetActive(false);
+            }
 
         }
     }
