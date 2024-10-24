@@ -93,6 +93,7 @@ public class BolaPruebas : MonoBehaviour
     private void FixedUpdate()
     {
         float x = Input.GetAxisRaw("Vertical"), y = 0, z = -Input.GetAxisRaw("Horizontal");
+
         rb.AddForce(new Vector3(x, y, z).normalized * velocidad, ForceMode.Force);
 
     }
