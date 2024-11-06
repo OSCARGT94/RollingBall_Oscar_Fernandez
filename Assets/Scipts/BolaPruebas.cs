@@ -120,6 +120,11 @@ public class BolaPruebas : MonoBehaviour
 
             transform.position = posInicial;
         }
+        if (other.CompareTag("checkopint"))
+        {
+
+            posInicial = transform.position;
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {

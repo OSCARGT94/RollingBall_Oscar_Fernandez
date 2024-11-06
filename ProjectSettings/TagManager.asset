@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Recogible
   - Muerte
+  - Suelo
+  - checkopint
   layers:
   - Default
   - TransparentFX
