@@ -1925,7 +1925,7 @@ Transform:
   m_GameObject: {fileID: 129060097}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.11, y: 0.3, z: -4.78}
+  m_LocalPosition: {x: 50.94, y: 0.3, z: -4.78}
   m_LocalScale: {x: 0.7873887, y: 17.922438, z: 30.058132}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34163,28 +34163,14 @@ GameObject:
   m_Component:
   - component: {fileID: 259706058}
   - component: {fileID: 259706057}
-  - component: {fileID: 259706056}
+  - component: {fileID: 259706059}
   m_Layer: 0
-  m_Name: Cambio de camara (1)
+  m_Name: Cambio de camara A3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &259706056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 259706055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3399d44166c8ef49abab075dfa04647, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camara1: {fileID: 651895992}
-  camaCenital: {fileID: 939233938}
 --- !u!65 &259706057
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34215,12 +34201,26 @@ Transform:
   m_GameObject: {fileID: 259706055}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.17, y: 0.3, z: -4.78}
+  m_LocalPosition: {x: 56.28, y: 0.3, z: -4.78}
   m_LocalScale: {x: 0.7873887, y: 17.922438, z: 30.058132}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &259706059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259706055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd187224514794045872338f8176b541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camara1: {fileID: 651895992}
+  camaCenital: {fileID: 939233938}
 --- !u!1 &264181032
 GameObject:
   m_ObjectHideFlags: 0
@@ -34847,7 +34847,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.23146024, y: 0.58276516, z: -0.17785613, w: 0.758405}
-  m_LocalPosition: {x: 47.82, y: 3.3500001, z: -8.91}
+  m_LocalPosition: {x: 45.25, y: 3.3500001, z: -6.9300003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37157,7 +37157,7 @@ Transform:
   m_GameObject: {fileID: 651895992}
   serializedVersion: 2
   m_LocalRotation: {x: 0.23146027, y: 0.5827651, z: -0.17785612, w: 0.7584051}
-  m_LocalPosition: {x: 47.82, y: 3.3500001, z: -8.91}
+  m_LocalPosition: {x: 45.25, y: 3.3500001, z: -6.9300003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -46168,7 +46168,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b594b14f38fc6ce42b4e82707814d73c, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -49080,7 +49080,7 @@ Transform:
   m_GameObject: {fileID: 2065367952}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 51.61, y: 0.71, z: -7.9}
+  m_LocalPosition: {x: 49.04, y: 0.71, z: -5.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
