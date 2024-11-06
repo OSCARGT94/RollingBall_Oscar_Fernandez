@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using TreeEditor;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class BolaPruebas : MonoBehaviour
@@ -10,13 +12,19 @@ public class BolaPruebas : MonoBehaviour
     Rigidbody rb;
     [SerializeField] float velocidad, velocidadSalto;
     int puntuacion, vida, vidaInicial = 10;
-    Vector3 posInicial;
+    Vector3 posInicial, StarOriginal;
     [SerializeField] TMP_Text score;
+    [SerializeField] GameObject marcadorPosInicial;
     //[SerializeField] Vector3 moverseW1, moverseS2, moverseA3, moverseD4;
     //float x, y, z;
     // Start is called before the first frame update
     void Start()
     {
+       
+
+        StarOriginal = marcadorPosInicial.transform.position;
+        transform.position = StarOriginal;
+
         rb = GetComponent<Rigidbody>();
         posInicial = transform.position;
         puntuacion = 0;
@@ -108,12 +116,12 @@ public class BolaPruebas : MonoBehaviour
     {
         if (other.CompareTag("Recogible"))
         {
-            actualizarHUD();
-            Destroy(other.gameObject);
             puntuacion += 10;
+            Destroy(other.gameObject);
             Debug.Log("Tu puntuacion ahora es " + puntuacion);
             vida += 3;
             Debug.Log("Tu vida se suma en 3, tu vida es " + vida);
+            actualizarHUD();
         }
         if (other.CompareTag("Muerte"))
         {

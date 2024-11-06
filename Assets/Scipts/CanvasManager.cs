@@ -25,4 +25,15 @@ public class CanvasManager : MonoBehaviour
     {
         Application.Quit();
     }
+    public void volverInicio()
+    {
+        SceneManager.LoadScene(0);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag ("Player"))
+        {
+            SceneManager.LoadScene(3);
+        }
+    }
 }
