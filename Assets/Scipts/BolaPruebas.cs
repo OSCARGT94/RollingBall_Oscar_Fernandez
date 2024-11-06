@@ -15,18 +15,23 @@ public class BolaPruebas : MonoBehaviour
     Vector3 posInicial, StarOriginal;
     [SerializeField] TMP_Text score, Lavida;
     [SerializeField] GameObject marcadorPosInicial;
+    bool inicio = false;
     //[SerializeField] Vector3 moverseW1, moverseS2, moverseA3, moverseD4;
     //float x, y, z;
     // Start is called before the first frame update
     void Start()
     {
        
+        
 
         StarOriginal = marcadorPosInicial.transform.position;
+        transform.position = StarOriginal;
+
 
         posInicial = StarOriginal;
 
         rb = GetComponent<Rigidbody>();
+
         puntuacion = 0;
         vida = vidaInicial;
         score.SetText("Score: " + puntuacion);
@@ -36,10 +41,9 @@ public class BolaPruebas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        transform.position = StarOriginal;
+        //Empezarinicio();
         findeljuego();
-        movimiento();
+        //movimiento();
         if (Input.GetKey(KeyCode.Space))
         {
             if (detectarSuelo())
@@ -168,6 +172,14 @@ public class BolaPruebas : MonoBehaviour
         if (vida <= 0)
         {
             SceneManager.LoadScene(2);
+        }
+    }
+    void Empezarinicio()
+    {
+        if (inicio == false)
+        {
+            inicio = true;
+            transform.position = StarOriginal;
         }
     }
 
