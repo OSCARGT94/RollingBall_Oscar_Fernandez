@@ -11,9 +11,9 @@ public class BolaPruebas : MonoBehaviour
 {
     Rigidbody rb;
     [SerializeField] float velocidad, velocidadSalto;
-    int puntuacion, vida, vidaInicial = 10;
+    int puntuacion, vida, vidaInicial = 3;
     Vector3 posInicial, StarOriginal;
-    [SerializeField] TMP_Text score;
+    [SerializeField] TMP_Text score, Lavida;
     [SerializeField] GameObject marcadorPosInicial;
     //[SerializeField] Vector3 moverseW1, moverseS2, moverseA3, moverseD4;
     //float x, y, z;
@@ -23,19 +23,22 @@ public class BolaPruebas : MonoBehaviour
        
 
         StarOriginal = marcadorPosInicial.transform.position;
-        transform.position = StarOriginal;
+
+        posInicial = StarOriginal;
 
         rb = GetComponent<Rigidbody>();
-        posInicial = transform.position;
         puntuacion = 0;
         vida = vidaInicial;
         score.SetText("Score: " + puntuacion);
+        Lavida.SetText("Vida: " + vida);
     }
 
     // Update is called once per frame
     void Update()
     {
 
+        transform.position = StarOriginal;
+        findeljuego();
         movimiento();
         if (Input.GetKey(KeyCode.Space))
         {
@@ -125,7 +128,8 @@ public class BolaPruebas : MonoBehaviour
         }
         if (other.CompareTag("Muerte"))
         {
-
+            vida -= 1;
+            actualizarHUD();
             transform.position = posInicial;
         }
         if (other.CompareTag("checkopint"))
@@ -148,6 +152,8 @@ public class BolaPruebas : MonoBehaviour
     {
         //score.text = "Score: " + puntuacion;
         score.SetText("Score: " + puntuacion);
+
+        Lavida.SetText("Vida: " + vida);
     }
     private bool detectarSuelo()
     {
@@ -156,6 +162,13 @@ public class BolaPruebas : MonoBehaviour
         return suelo;
 
         
+    }
+    void findeljuego()
+    {
+        if (vida <= 0)
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 
 }

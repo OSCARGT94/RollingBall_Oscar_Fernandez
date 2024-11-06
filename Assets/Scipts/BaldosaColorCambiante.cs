@@ -16,12 +16,19 @@ public class BaldosaColorCambiante : MonoBehaviour
     {
 
     }
-    private void OnCollisionEnter(Collision collision)
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.tag.Equals("Player"))
+    //    {
+    //        GetComponent<Renderer>().material.color = new Color(Random.value, Random.value, Random.value);
+    //    }
+        
+    //}
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag.Equals("Player"))
+        if (other.CompareTag("Player"))
         {
             GetComponent<Renderer>().material.color = new Color(Random.value, Random.value, Random.value);
         }
-        
     }
 }
