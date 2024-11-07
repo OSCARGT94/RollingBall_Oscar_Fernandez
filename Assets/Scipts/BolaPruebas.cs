@@ -126,7 +126,10 @@ public class BolaPruebas : MonoBehaviour
             puntuacion += 10;
             Destroy(other.gameObject);
             Debug.Log("Tu puntuacion ahora es " + puntuacion);
-            vida += 3;
+            if (vida <= 2)
+            {
+                vida += 1;
+            }
             Debug.Log("Tu vida se suma en 3, tu vida es " + vida);
             actualizarHUD();
         }
