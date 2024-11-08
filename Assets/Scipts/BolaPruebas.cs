@@ -11,11 +11,13 @@ public class BolaPruebas : MonoBehaviour
 {
     Rigidbody rb;
     [SerializeField] float velocidad, velocidadSalto;
-    int puntuacion, vida, vidaInicial = 3;
+    public static int puntuacion, vida, vidaInicial = 3;
+    public static string Tempo;
     Vector3 posInicial, StarOriginal;
-    [SerializeField] TMP_Text score, Lavida;
+    [SerializeField] TMP_Text score, Lavida, tiempoCorre;
     [SerializeField] GameObject marcadorPosInicial;
     bool inicio = false;
+    public static float relojuego = 0;
     //[SerializeField] Vector3 moverseW1, moverseS2, moverseA3, moverseD4;
     //float x, y, z;
     // Start is called before the first frame update
@@ -52,7 +54,17 @@ public class BolaPruebas : MonoBehaviour
             }
 
         }
-
+        Tempo = temporizador(0, 0);
+        
+    }
+    public string temporizador(int min, int sec)
+    {
+        relojuego += Time.deltaTime;
+        int minutes = Mathf.FloorToInt(relojuego / 60);
+        int seconds = Mathf.FloorToInt(relojuego % 60);
+        tiempoCorre.SetText(minutes + ":" + seconds);
+        string TIEMPOFINAL = minutes + ":" + seconds;
+        return TIEMPOFINAL;
     }
     void movimiento()
     {
