@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using TreeEditor;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -23,8 +21,8 @@ public class BolaPruebas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
-        
+
+        relojuego = 0;
 
         StarOriginal = marcadorPosInicial.transform.position;
         transform.position = StarOriginal;
