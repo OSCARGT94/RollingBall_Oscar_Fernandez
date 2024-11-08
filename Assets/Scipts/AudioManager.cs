@@ -19,5 +19,8 @@ public class AudioManager : MonoBehaviour
     public void ReproducirSonido(AudioClip clip)
     {
         audioSourceFx.PlayOneShot(clip);
+        audioSourceFx2.PlayOneShot(clip);
+        audioSourceFx3.PlayOneShot(clip);
+        audioSourceFx4.PlayOneShot(clip);
     }
 }
