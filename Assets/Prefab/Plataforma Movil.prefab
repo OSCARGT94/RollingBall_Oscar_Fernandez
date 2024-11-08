@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movimiento: {x: 0, y: 0, z: -1}
-  velocidad: 5
+  velocidad: -5
   timer: 1
   restTimer: 2
 --- !u!33 &6566057634998726206
@@ -79,9 +79,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  - {fileID: 2100000, guid: 6a18c88d2893d894b824e7203fa7eab5, type: 2}
-  - {fileID: 2100000, guid: 5390d149e24bce04491006dcb9bfd59d, type: 2}
+  - {fileID: 2100000, guid: a384b583426023d4da68d3f25e868451, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
