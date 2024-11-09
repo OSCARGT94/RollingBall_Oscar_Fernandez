@@ -16,6 +16,7 @@ public class BolaPruebas : MonoBehaviour
     Vector3 posInicial, StarOriginal;
     [SerializeField] TMP_Text score, Lavida, tiempoCorre;
     [SerializeField] GameObject marcadorPosInicial;
+    [SerializeField] GameObject canvasQuieto;
     bool inicio = false;
     public static float relojuego = 0;
     //[SerializeField] Vector3 moverseW1, moverseS2, moverseA3, moverseD4;
@@ -23,8 +24,8 @@ public class BolaPruebas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
-        
+
+        canvasQuieto.SetActive(false);
 
         StarOriginal = marcadorPosInicial.transform.position;
         transform.position = StarOriginal;
@@ -55,7 +56,7 @@ public class BolaPruebas : MonoBehaviour
 
         }
         Tempo = temporizador(0, 0);
-        
+        canvasPausa();
     }
     public string temporizador(int min, int sec)
     {
@@ -177,10 +178,10 @@ public class BolaPruebas : MonoBehaviour
     private bool detectarSuelo()
     {
         bool suelo = Physics.Raycast(transform.position, new Vector3(0, -1, 0), 0.6f);
-        Debug.DrawRay(transform.position, new Vector3(0,-1,0),Color.red, 2f);
+        Debug.DrawRay(transform.position, new Vector3(0, -1, 0), Color.red, 2f);
         return suelo;
 
-        
+
     }
     void findeljuego()
     {
@@ -189,12 +190,19 @@ public class BolaPruebas : MonoBehaviour
             SceneManager.LoadScene(2);
         }
     }
-    void Empezarinicio()
+    void canvasPausa()
     {
-        if (inicio == false)
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            inicio = true;
-            transform.position = StarOriginal;
+            canvasQuieto.SetActive(!canvasQuieto.activeSelf);
+            if (canvasQuieto.activeSelf)
+            {
+                Time.timeScale = 0;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
         }
     }
 
