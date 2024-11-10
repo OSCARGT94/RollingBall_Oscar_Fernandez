@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using TreeEditor;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -24,8 +22,13 @@ public class BolaPruebas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+<<<<<<< HEAD
         relojuego = 0;
         canvasQuieto.SetActive(false);
+=======
+
+        relojuego = 0;
+>>>>>>> 95d4c5247f1308ce0fc8465828c86778322c1073
 
         StarOriginal = marcadorPosInicial.transform.position;
         transform.position = StarOriginal;
