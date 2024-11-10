@@ -15,7 +15,6 @@ public class BolaPruebas : MonoBehaviour
     [SerializeField] TMP_Text score, Lavida, tiempoCorre;
     [SerializeField] GameObject marcadorPosInicial;
     [SerializeField] GameObject canvasQuieto;
-    bool inicio = false;
     public static float relojuego = 0;
     //[SerializeField] Vector3 moverseW1, moverseS2, moverseA3, moverseD4;
     //float x, y, z;
