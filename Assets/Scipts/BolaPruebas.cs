@@ -24,7 +24,7 @@ public class BolaPruebas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        relojuego = 0;
         canvasQuieto.SetActive(false);
 
         StarOriginal = marcadorPosInicial.transform.position;

@@ -52,7 +52,9 @@ public class RecogibleInicial : MonoBehaviour
         {
             audioManager.ReproducirSonido(sonidocoin);
         }
+        
     }
+
     //private void //OnTriggerEnter(Collider other)
     //{
     //    if (other.tag == "Player")

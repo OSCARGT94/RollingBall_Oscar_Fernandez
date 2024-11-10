@@ -22,5 +22,7 @@ public class AudioManager : MonoBehaviour
         audioSourceFx2.PlayOneShot(clip);
         audioSourceFx3.PlayOneShot(clip);
         audioSourceFx4.PlayOneShot(clip);
+        
     }
+    
 }
